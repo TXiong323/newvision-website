@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Vision International | Custom Manufacturing & Sourcing</title>
+    <meta name="description" content="Your trusted family-owned sourcing partner for custom metal, plastic, and solar components. Serving US manufacturers for over 25 years.">
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            /* COLORS EXTRACTED FROM YOUR LOGO */
+            --primary-color: #002B49; /* Deep Navy */
+            --accent-color: #EA8F1F;  /* Industrial Orange */
+            
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --bg-light: #ffffff;
+            --bg-gray: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border_box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--bg-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 85px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover { color: var(--accent-color); }
+
+        .cta-btn {
+            background: var(--accent-color);
+            color: white !important;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(234, 143, 31, 0.3);
+        }
+
+        .cta-btn:hover { 
+            background: #d6811a; 
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0, 43, 73, 0.9), rgba(0, 43, 73, 0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 100px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero-btn:hover { background: #d6811a; }
+
+        /* --- ABOUT SECTION --- */
+        .section { padding: 90px 0; }
+        .bg-gray { background: var(--bg-gray); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title .line {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            flex: 1;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+        
+        .stat-box p { font-weight: 600; color: #666; }
+
+        /* --- CAPABILITIES --- */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted width for 3-column layout */
+            gap: 30px;
+        }
+
+        .cap-card {
+            background: white;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 35px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 100%; /* Ensures equal height cards */
+        }
+
+        .cap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .cap-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .cap-card:hover::before { background: var(--accent-color); }
+
+        .cap-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .cap-card h3 { 
+            margin-bottom: 15px; 
+            color: var(--primary-color); 
+            font-size: 1.4rem;
+        }
+        
+        .cap-card ul { margin-left: 20px; list-style-type: square; color: #555; }
+        .cap-card li { margin-bottom: 8px; font-size: 1rem; }
+
+        /* --- INDUSTRIES --- */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .ind-item {
+            background: white;
+            padding: 25px;
+            border-radius: 6px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-weight: 700;
+            color: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .ind-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            background: var(--primary-color);
+            color: white;
+            padding: 70px;
+            border-radius: 12px;
+            text-align: center;
+            border-bottom: 8px solid var(--accent-color);
+        }
+
+        .contact-box h2 { margin-bottom: 20px; }
+        .contact-box p { font-size: 1.2rem; margin-bottom: 30px; }
+        
+        .email-link {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+        }
+
+        .email-link:hover { color: white; border-bottom: 2px solid white; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #001f35;
+            color: #ccc;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .footer-logo span { color: var(--accent-color); }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            header { height: 80px; }
+            .logo-img { height: 60px; }
+            .hero-content h1 { font-size: 2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo-link">
+                    <!-- Ensure your logo file is named logo.png and is in the same folder -->
+                    <img src="logo.png" alt="New Vision International Holding Limited" class="logo-img">
+                </a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#capabilities">Capabilities</a>
+                    <a href="#industries">Industries</a>
+                    <a href="#contact" class="cta-btn">Contact Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Engineered for Reliability.<br>Sourced with Care.</h1>
+            <p>Your family-owned partner for custom manufacturing. Specialized in die-casting, injection molding, and solar components for over 25 years.</p>
+            <a href="#contact" class="hero-btn">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Built on Family Tradition</h3>
+                    <p>New Vision International Holding Limited brings over two decades of sourcing expertise to the U.S. market. We are not just a middleman; we are the bridge between your engineering team and the factory floor in China.</p>
+                    <br>
+                    <p>We specialize in helping small to mid-sized manufacturers who need high-quality custom parts but want to avoid the risks of direct overseas procurement. From raw material to final logistics, we handle it all.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h4>25+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>OEM</h4>
+                            <p>Custom Production</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- NEW IMAGE LINK: Quality Control Engineer / Factory Setting -->
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Factory Quality Control" style="width:100%; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="section bg-gray" id="capabilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Capabilities</h2>
+                <div class="line"></div>
+                <p style="margin-top: 15px;">A complete range of manufacturing solutions tailored to your specs.</p>
+            </div>
+
+            <!-- GRID OF 6 ITEMS -->
+            <div class="capabilities-grid">
+                <!-- 1. Metal -->
+                <div class="cap-card">
+                    <div class="cap-icon">⚙️</div>
+                    <h3>Metal Manufacturing</h3>
+                    <ul>
+                        <li>Aluminum & Zinc Die-Casting</li>
+                        <li>CNC Machining</li>
+                        <li>Metal Stamping</li>
+                        <li>Brackets, Housings & Panels</li>
+                        <li>Anodizing & Powder Coating</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Plastic -->
+                <div class="cap-card">
+                    <div class="cap-icon">🧩</div>
+                    <h3>Plastic Injection</h3>
+                    <ul>
+                        <li>Custom Injection Molding</li>
+                        <li>Complex Enclosures</li>
+                        <li>Overmolding</li>
+                        <li>UV-Resistant Outdoor Parts</li>
+                        <li>Ultrasonic Welding</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Solar -->
+                <div class="cap-card">
+                    <div class="cap-icon">☀️</div>
+                    <h3>Solar Components</h3>
+                    <ul>
+                        <li>Custom Solar Panels</li>
+                        <li>Integrated Solar Modules</li>
+                        <li>Energy Storage Casings</li>
+                        <li>Street Light Housings</li>
+                        <li>Waterproof Connectors</li>
+                    </ul>
+                </div>
+
+                <!-- 4. Tooling (NEW) -->
+                <div class="cap-card">
+                    <div class="cap-icon">📐</div>
+                    <h3>Mold & Tooling</h3>
+                    <ul>
+                        <li>In-house Mold Design</li>
+                        <li>Rapid Prototyping (3D Print)</li>
+                        <li>Die-Cast Molds</li>
+                        <li>Injection Molds</li>
+                        <li>Lifetime Mold Maintenance</li>
+                    </ul>
+                </div>
+
+                <!-- 5. Electronics (NEW) -->
+                <div class="cap-card">
+                    <div class="cap-icon">🔌</div>
+                    <h3>Assembly & Kitting</h3>
+                    <ul>
+                        <li>PCB Integration</li>
+                        <li>Cable Harness Assembly</li>
+                        <li>LED Module Mounting</li>
+                        <li>Product Kitting & Labeling</li>
+                        <li>Functional Testing</li>
+                    </ul>
+                </div>
+
+                <!-- 6. Services -->
+                <div class="cap-card">
+                    <div class="cap-icon">🚢</div>
+                    <h3>Sourcing Services</h3>
+                    <ul>
+                        <li>Supplier Audits</li>
+                        <li>AQL Quality Inspections</li>
+                        <li>DDP/FOB Logistics</li>
+                        <li>Custom Packaging</li>
+                        <li>Export Coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="section" id="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+                <div class="line"></div>
+            </div>
+            <div class="industries-grid">
+                <div class="ind-item">Solar Lighting</div>
+                <div class="ind-item">Outdoor & Street Lights</div>
+                <div class="ind-item">Smart City Equipment</div>
+                <div class="ind-item">EV Charging Stations</div>
+                <div class="ind-item">Parking Meters & Kiosks</div>
+                <div class="ind-item">Energy Storage</div>
+                <div class="ind-item">RV & Marine Equipment</div>
+                <div class="ind-item">Security & Access Control</div>
+                <div class="ind-item">IoT Devices</div>
+                <div class="ind-item">Vending Machines</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section bg-gray" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Start Your Sourcing Journey</h2>
+                <p>Send us your drawings or requirements. We are ready to help you optimize costs and quality.</p>
+                
+                <div style="margin-top: 30px;">
+                    <p style="font-size: 1rem; margin-bottom: 5px; opacity: 0.9;">Customer Developing Manager</p>
+                    <a href="mailto:txiong1@newvisionint.com" class="email-link">txiong1@newvisionint.com</a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">New Vision International Holding Limited</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">NEW VISION <span>INTERNATIONAL</span></div>
+            <p>&copy; 2025 New Vision International Holding Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
